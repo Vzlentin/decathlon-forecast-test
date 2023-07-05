@@ -94,7 +94,7 @@ def pipeline(inputs_path, output_path, model_params):
     eval_forecast = fit_and_predict(model_params, history=train, future=validation)
     scores = evaluate_forecast(validation, eval_forecast)
     logging.info(scores)
-    forward_forecast = fit_and_predict(model_params, history=pd.concat([train, val]), future=test)
+    forward_forecast = fit_and_predict(model_params, history=pd.concat([train, validation]), future=test)
 
     # Output
     write_output(forward_forecast, output_path)
